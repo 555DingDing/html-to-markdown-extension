@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML转Markdown - 设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="options-container">
+    <header>
+      <h1>HTML转Markdown 设置</h1>
+      <p>配置转换规则</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>标题样式</h2>
+        <div class="option-group">
+          <label class="radio-label">
+            <input type="radio" name="headingStyle" value="atx" checked>
+            <span>ATX 风格</span>
+            <code># 标题</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="headingStyle" value="setext">
+            <span>Setext 风格</span>
+            <code>标题\n====</code>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <h2>列表标记</h2>
+        <div class="option-group">
+          <label class="radio-label">
+            <input type="radio" name="bulletListMarker" value="-" checked>
+            <span>短横线</span>
+            <code>- 项目</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="bulletListMarker" value="*">
+            <span>星号</span>
+            <code>* 项目</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="bulletListMarker" value="+">
+            <span>加号</span>
+            <code>+ 项目</code>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <h2>代码块样式</h2>
+        <div class="option-group">
+          <label class="radio-label">
+            <input type="radio" name="codeBlockStyle" value="fenced" checked>
+            <span>围栏式</span>
+            <code>```js\ncode\n```</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="codeBlockStyle" value="indented">
+            <span>缩进式</span>
+            <code>    code</code>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <h2>分隔符</h2>
+        <div class="option-group">
+          <label class="radio-label">
+            <input type="radio" name="hr" value="---" checked>
+            <code>---</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="hr" value="***">
+            <code>***</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="hr" value="___">
+            <code>___</code>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <h2>强调样式</h2>
+        <div class="option-row">
+          <div class="option-col">
+            <label>斜体分隔符</label>
+            <div class="option-group">
+              <label class="radio-label">
+                <input type="radio" name="emDelimiter" value="*" checked>
+                <code>*文本*</code>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="emDelimiter" value="_">
+                <code>_文本_</code>
+              </label>
+            </div>
+          </div>
+          <div class="option-col">
+            <label>粗体分隔符</label>
+            <div class="option-group">
+              <label class="radio-label">
+                <input type="radio" name="strongDelimiter" value="**" checked>
+                <code>**文本**</code>
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="strongDelimiter" value="__">
+                <code>__文本__</code>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>链接样式</h2>
+        <div class="option-group">
+          <label class="radio-label">
+            <input type="radio" name="linkStyle" value="inlined" checked>
+            <span>内联式</span>
+            <code>[text](url)</code>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="linkStyle" value="referenced">
+            <span>引用式</span>
+            <code>[text][1]\n[1]: url</code>
+          </label>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="saveBtn">保存设置</button>
+        <button class="btn btn-secondary" id="resetBtn">恢复默认</button>
+        <span class="save-status" id="saveStatus"></span>
+      </div>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

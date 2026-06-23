@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML转Markdown</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <h1>HTML → Markdown</h1>
+      <button class="settings-btn" id="settingsBtn" title="设置">⚙</button>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="paste">粘贴HTML</button>
+      <button class="tab" data-tab="page">转换当前页面</button>
+      <button class="tab" data-tab="selection">转换选中内容</button>
+    </div>
+
+    <!-- 粘贴HTML -->
+    <div class="tab-content active" id="paste-tab">
+      <textarea id="htmlInput" placeholder="在此粘贴HTML代码，或拖拽 .html 文件到此处...&#10;&#10;Ctrl+Enter 快速转换"></textarea>
+      <button class="btn btn-primary" id="convertPasteBtn">转换</button>
+    </div>
+
+    <!-- 转换当前页面 -->
+    <div class="tab-content" id="page-tab">
+      <p class="hint">提取当前网页的主体内容并转换为Markdown</p>
+      <button class="btn btn-primary" id="convertPageBtn">转换当前页面</button>
+    </div>
+
+    <!-- 转换选中内容 -->
+    <div class="tab-content" id="selection-tab">
+      <p class="hint">选中页面上的文字后点击转换</p>
+      <button class="btn btn-primary" id="convertSelectionBtn">转换选中内容</button>
+    </div>
+
+    <!-- 输出区域 -->
+    <div class="output-section" id="outputSection" style="display:none;">
+      <div class="output-header">
+        <div class="output-tabs">
+          <button class="output-tab active" data-view="source">源码</button>
+          <button class="output-tab" data-view="preview">预览</button>
+        </div>
+        <div class="output-actions">
+          <button class="btn btn-small" id="copyBtn">复制</button>
+          <button class="btn btn-small btn-download" id="downloadBtn">下载</button>
+        </div>
+      </div>
+      <div class="output-views">
+        <textarea id="markdownOutput" class="output-view active" readonly></textarea>
+        <div id="previewOutput" class="output-view preview-content"></div>
+      </div>
+      <div class="char-count" id="charCount"></div>
+    </div>
+  </div>
+
+  <script src="lib/turndown.js"></script>
+  <script src="lib/turndown-plugin-gfm.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
